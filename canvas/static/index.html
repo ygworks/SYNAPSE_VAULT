@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNAPSE VAULT - 46.7TB 하이엔드 성좌 캔버스</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #090A0F; color: #F8FAFC; overflow: hidden; margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        #canvas-viewport { width: 100vw; height: 100vh; position: relative; cursor: grab; background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px); background-size: 32px 32px; }
+        #canvas-viewport:active { cursor: grabbing; }
+        #canvas-world { position: absolute; top: 0; left: 0; transform-origin: 0 0; }
+        svg { position: absolute; top: 0; left: 0; width: 4000px; height: 4000px; pointer-events: none; overflow: visible; }
+        .node { position: absolute; user-select: none; transition: transform 0.15s, box-shadow 0.15s; }
+        .node:hover { z-index: 100; transform: scale(1.02); }
+        .bezier-path { stroke: rgba(59, 130, 246, 0.45); stroke-width: 2.5; fill: none; filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.3)); }
+        .poster-glow:hover { box-shadow: 0 0 30px rgba(59, 130, 246, 0.7); }
+    </style>
+</head>
+<body class="w-screen h-screen">
+
+    <!-- 상단 마스터 네비게이션 헤더 -->
+    <header class="absolute top-4 left-6 right-6 z-50 flex items-center justify-between bg-[#12141A]/90 backdrop-blur-md border border-[#232733] px-6 py-3 rounded-2xl shadow-2xl">
+        <div class="flex items-center gap-3">
+            <span class="text-2xl">🏛️</span>
+            <div>
+                <h1 class="text-sm font-extrabold tracking-wider text-white flex items-center gap-2">
+                    SYNAPSE VAULT <span class="text-[10px] bg-blue-600/30 text-blue-400 px-2 py-0.5 rounded-full border border-blue-500/30">PRO</span>
+                </h1>
+                <p id="liveStats" class="text-xs text-gray-400">데이터 로딩 중...</p>
+            </div>
+        </div>
+
+        <!-- 배우 드롭다운 & 검색 컨트롤 -->
+        <div class="flex items-center gap-3 w-1/2 max-w-xl">
+            <!-- 배우 빠른 선택 -->
+            <select id="actorSelect" onchange="onSelectActor(this.value)" class="bg-[#1A1D24] border border-[#2E3545] text-xs text-white px-3 py-2.5 rounded-xl focus:outline-none focus:border-blue-500 max-w-[180px]">
+                <option value="">배우 선택...</option>
+            </select>
+
+            <!-- 검색 입력창 -->
+            <div class="relative flex-1">
+                <input id="searchInput" type="text" placeholder="배우 이름 또는 품번 검색..." 
+                       class="w-full bg-[#1A1D24] border border-[#2E3545] text-xs text-white pl-4 pr-10 py-2.5 rounded-xl focus:outline-none focus:border-blue-500">
+                <button onclick="triggerSearch()" class="absolute right-2.5 top-2.5 text-gray-400 hover:text-white">🔍</button>
+            </div>
+
+            <button onclick="loadRandomActor()" class="bg-[#1E222D] hover:bg-[#2A303F] border border-[#2E3545] text-xs font-semibold text-blue-400 px-4 py-2.5 rounded-xl transition whitespace-nowrap">
+                🎲 랜덤 소환
+            </button>
+        </div>
+
+        <div id="statusBadge" class="text-xs font-medium text-blue-400 bg-blue-950/40 border border-blue-800/40 px-3 py-1.5 rounded-xl">
+            배우를 선택하여 성좌를 소환하세요
+        </div>
+    </header>
+
+    <!-- 무한 캔버스 뷰포트 -->
+    <div id="canvas-viewport">
+        <div id="canvas-world">
+            <svg id="svgLayer"></svg>
+            <div id="nodesLayer"></div>
+        </div>
+    </div>
+
+    <!-- 비디오 스트리밍 모달 플레이어 -->
+    <div id="videoModal" class="fixed inset-0 bg-black/90 z-[200] hidden flex items-center justify-center p-6 backdrop-blur-md">
+        <div class="bg-[#12141A] border border-[#232733] rounded-3xl max-w-5xl w-full p-6 relative flex flex-col gap-4 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-[#232733] pb-3">
+                <div class="flex items-center gap-3">
+                    <span class="text-red-500 text-lg">●</span>
+                    <h2 id="videoTitle" class="text-sm font-bold text-white truncate max-w-2xl">재생 중</h2>
+                </div>
+                <button onclick="closeVideo()" class="text-gray-400 hover:text-white text-xl font-bold px-3 py-1 bg-[#1A1D24] rounded-xl border border-[#2E3545]">✕</button>
+            </div>
+            <video id="videoPlayer" controls autoplay class="w-full max-h-[70vh] rounded-2xl bg-black border border-[#232733]"></video>
+        </div>
+    </div>
+
+    <script>
+        let panX = window.innerWidth / 2 - 600;
+        let panY = window.innerHeight / 2 - 450;
+        let scale = 1;
+        let isPanning = false;
+        let startX, startY;
+        let currentGraph = null;
+        let allActors = [];
+
+        const viewport = document.getElementById('canvas-viewport');
+        const world = document.getElementById('canvas-world');
+        const nodesLayer = document.getElementById('nodesLayer');
+        const svgLayer = document.getElementById('svgLayer');
+
+        // 초기 구동
+        window.onload = async () => {
+            updateTransform();
+            await fetchStats();
+            await fetchActors();
+        };
+
+        async function fetchStats() {
+            try {
+                const res = await fetch('/api/vault/stats');
+                const data = await res.json();
+                document.getElementById('liveStats').innerText = `총 ${data.total_works.toLocaleString()}편 소장작 | 배우 ${data.total_actors.toLocaleString()}명`;
+            } catch (e) {
+                document.getElementById('liveStats').innerText = '오프라인';
+            }
+        }
+
+        async function fetchActors() {
+            try {
+                const res = await fetch('/api/vault/actors');
+                allActors = await res.json();
+                const sel = document.getElementById('actorSelect');
+                allActors.forEach(a => {
+                    const opt = document.createElement('option');
+                    opt.value = a.name;
+                    opt.innerText = `${a.name} (${a.count}편)`;
+                    sel.appendChild(opt);
+                });
+            } catch (e) {}
+        }
+
+        function onSelectActor(actor) {
+            if (actor) loadConstellation(actor);
+        }
+
+        function triggerSearch() {
+            const val = document.getElementById('searchInput').value.trim();
+            if (val) loadConstellation(val);
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') triggerSearch();
+        });
+
+        function loadRandomActor() {
+            if (allActors.length > 0) {
+                const rand = allActors[Math.floor(Math.random() * allActors.length)];
+                document.getElementById('actorSelect').value = rand.name;
+                loadConstellation(rand.name);
+            }
+        }
+
+        // 캔버스 팬 & 줌 이벤트
+        viewport.addEventListener('mousedown', (e) => {
+            if (e.target.closest('.node')) return;
+            isPanning = true;
+            startX = e.clientX - panX;
+            startY = e.clientY - panY;
+        });
+        window.addEventListener('mousemove', (e) => {
+            if (!isPanning) return;
+            panX = e.clientX - startX;
+            panY = e.clientY - startY;
+            updateTransform();
+        });
+        window.addEventListener('mouseup', () => isPanning = false);
+        viewport.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+            scale = Math.min(Math.max(0.3, scale * delta), 2.5);
+            updateTransform();
+        });
+
+        function updateTransform() {
+            world.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+        }
+
+        // 별자리 로드
+        async function loadConstellation(actorName) {
+            document.getElementById('statusBadge').innerText = `'${actorName}' 성좌 연산 중...`;
+            try {
+                const res = await fetch(`/api/vault/constellation/${encodeURIComponent(actorName)}`);
+                if (!res.ok) throw new Error('작품을 찾을 수 없습니다.');
+                currentGraph = await res.json();
+
+                renderCanvas(currentGraph);
+                document.getElementById('statusBadge').innerText = `🌟 ${currentGraph.actor} (${currentGraph.total}편 연결됨)`;
+
+                // 중앙 리셋
+                panX = window.innerWidth / 2 - 600 * scale;
+                panY = window.innerHeight / 2 - 450 * scale;
+                updateTransform();
+            } catch (err) {
+                document.getElementById('statusBadge').innerText = `⚠️ ${err.message}`;
+            }
+        }
+
+        function renderCanvas(graph) {
+            nodesLayer.innerHTML = '';
+            svgLayer.innerHTML = '';
+
+            // 1. 노드 렌더링
+            graph.nodes.forEach(n => {
+                const el = document.createElement('div');
+                el.id = n.id;
+                el.style.left = `${n.x}px`;
+                el.style.top = `${n.y}px`;
+
+                if (n.type === 'ACTOR_CORE') {
+                    // 중심 배우 핵 노드
+                    el.className = 'node flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-900/90 to-indigo-950/90 border-2 border-blue-400 rounded-3xl w-56 text-center shadow-2xl';
+                    el.innerHTML = `
+                        <div class="text-3xl mb-1">🌟</div>
+                        <div class="text-base font-extrabold text-yellow-300">${n.actor}</div>
+                        <div class="text-xs text-blue-200 mt-1">소장 작품 ${n.work_count}편</div>
+                    `;
+                } else {
+                    // 주변 작품 카드 노드
+                    el.className = 'node poster-glow bg-[#12141A] border border-[#232733] rounded-2xl w-48 overflow-hidden flex flex-col cursor-pointer shadow-xl';
+                    el.innerHTML = `
+                        <div class="relative w-full h-64 bg-gray-950">
+                            <img src="${n.poster_url}" class="w-full h-full object-cover" onerror="this.src='/api/vault/poster/none'">
+                            <span class="absolute top-2 left-2 bg-black/70 backdrop-blur text-[10px] font-bold text-yellow-400 px-2 py-0.5 rounded-md border border-white/10">${n.code}</span>
+                            <span class="absolute top-2 right-2 bg-blue-600/80 backdrop-blur text-[10px] font-bold text-white px-1.5 py-0.5 rounded-md">${n.year || '----'}</span>
+                        </div>
+                        <div class="p-3 flex flex-col gap-1">
+                            <div class="text-xs font-bold text-white truncate">${n.title}</div>
+                            <div class="text-[10px] text-gray-400 truncate">${n.studio || 'VAULT'}</div>
+                        </div>
+                    `;
+                    el.onclick = () => openVideo(n.title, n.stream_url);
+                }
+
+                nodesLayer.appendChild(el);
+            });
+
+            // 2. 3차 베지에 곡선 연결선 렌더링
+            const core = graph.nodes.find(n => n.type === 'ACTOR_CORE');
+            if (!core) return;
+
+            const cX = core.x + 112;
+            const cY = core.y + 60;
+
+            graph.edges.forEach(edge => {
+                const target = graph.nodes.find(n => n.id === edge.target);
+                if (!target) return;
+
+                const tX = target.x + 96;
+                const tY = target.y + 160;
+
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                const midX = (cX + tX) / 2;
+                const midY = (cY + tY) / 2 - 40;
+                path.setAttribute('d', `M ${cX} ${cY} Q ${midX} ${midY} ${tX} ${tY}`);
+                path.setAttribute('class', 'bezier-path');
+                svgLayer.appendChild(path);
+            });
+        }
+
+        // 비디오 스트리밍 재생
+        function openVideo(title, url) {
+            document.getElementById('videoTitle').innerText = title;
+            const player = document.getElementById('videoPlayer');
+            player.src = url;
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+
+        function closeVideo() {
+            const player = document.getElementById('videoPlayer');
+            player.pause();
+            player.src = '';
+            document.getElementById('videoModal').classList.add('hidden');
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeVideo();
+        });
+    </script>
+</body>
+</html>

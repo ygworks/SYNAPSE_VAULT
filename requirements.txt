@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+aiofiles
+requests
+pillow
+beautifulsoup4
+sentence-transformers
+faiss-cpu
+numpy

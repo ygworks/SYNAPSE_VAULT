@@ -1,0 +1,920 @@
+{
+    "_metadata":  {
+                      "version":  "3.2.0",
+                      "description":  "고전 80대 AV 레이블 및 DMM CID 프리픽스 표준 매핑 테이블",
+                      "updated_at":  "2026-10-05"
+                  },
+    "studios":  {
+                    "ONED":  {
+                                 "prefixes":  [
+                                                  "1oned",
+                                                  "oned",
+                                                  "24oned",
+                                                  "118oned"
+                                              ],
+                                 "studio":  "One\u0027s Double"
+                             },
+                    "XV":  {
+                               "prefixes":  [
+                                                "21xv",
+                                                "xv",
+                                                "71xv",
+                                                "171xv"
+                                            ],
+                               "studio":  "MAX-A"
+                           },
+                    "KV":  {
+                               "prefixes":  [
+                                                "84kv",
+                                                "kv",
+                                                "k_kv"
+                                            ],
+                               "studio":  "KMP"
+                           },
+                    "R":  {
+                              "prefixes":  [
+                                               "13r",
+                                               "r",
+                                               "21r"
+                                           ],
+                              "studio":  "ロケット (ROCKET)"
+                          },
+                    "DV":  {
+                               "prefixes":  [
+                                                "118dv",
+                                                "11dv",
+                                                "dv",
+                                                "24dv"
+                                            ],
+                               "studio":  "アリスJAPAN (Alice Japan)"
+                           },
+                    "DAJ":  {
+                                "prefixes":  [
+                                                 "118daj",
+                                                 "daj"
+                                             ],
+                                "studio":  "アリスJAPAN (Alice Japan)"
+                            },
+                    "DVAA":  {
+                                 "prefixes":  [
+                                                  "118dvaa",
+                                                  "dvaa",
+                                                  "24dvaa"
+                                              ],
+                                 "studio":  "アリスJAPAN (Alice Japan)"
+                             },
+                    "DVSA":  {
+                                 "prefixes":  [
+                                                  "118dvsa",
+                                                  "dvsa",
+                                                  "24dvsa"
+                                              ],
+                                 "studio":  "アリスJAPAN (Alice Japan)"
+                             },
+                    "HODV":  {
+                                 "prefixes":  [
+                                                  "24hodv",
+                                                  "hodv",
+                                                  "118hodv"
+                                              ],
+                                 "studio":  "北窓 (Hokusou / SOD)"
+                             },
+                    "JYH":  {
+                                "prefixes":  [
+                                                 "24jyh",
+                                                 "jyh",
+                                                 "118jyh"
+                                             ],
+                                "studio":  "北窓 (Hokusou / SOD)"
+                            },
+                    "DRJ":  {
+                                "prefixes":  [
+                                                 "118drj",
+                                                 "drj"
+                                             ],
+                                "studio":  "ドリームロマンス (Dream Romance)"
+                            },
+                    "DRZ":  {
+                                "prefixes":  [
+                                                 "118drz",
+                                                 "drz"
+                                             ],
+                                "studio":  "ドリームロマンス (Dream Romance)"
+                            },
+                    "DSMZ":  {
+                                 "prefixes":  [
+                                                  "dsmz",
+                                                  "24dsmz",
+                                                  "118dsmz"
+                                              ],
+                                 "studio":  "DAS!"
+                             },
+                    "MDS":  {
+                                "prefixes":  [
+                                                 "1mds",
+                                                 "mds",
+                                                 "24mds",
+                                                 "118mds"
+                                             ],
+                                "studio":  "MOODYZ"
+                            },
+                    "MDED":  {
+                                 "prefixes":  [
+                                                  "1mded",
+                                                  "mded"
+                                              ],
+                                 "studio":  "MOODYZ"
+                             },
+                    "MDLD":  {
+                                 "prefixes":  [
+                                                  "1mdld",
+                                                  "mdld"
+                                              ],
+                                 "studio":  "MOODYZ"
+                             },
+                    "MILD":  {
+                                 "prefixes":  [
+                                                  "mild",
+                                                  "118mild",
+                                                  "24mild"
+                                              ],
+                                 "studio":  "Milky Cat"
+                             },
+                    "MIGD":  {
+                                 "prefixes":  [
+                                                  "118migd",
+                                                  "migd",
+                                                  "24migd"
+                                              ],
+                                 "studio":  "Milky Cat"
+                             },
+                    "BNDV":  {
+                                 "prefixes":  [
+                                                  "bndv",
+                                                  "24bndv",
+                                                  "118bndv"
+                                              ],
+                                 "studio":  "Babylon (バビロン)"
+                             },
+                    "BNK":  {
+                                "prefixes":  [
+                                                 "118bnk",
+                                                 "bnk"
+                                             ],
+                                "studio":  "BNK"
+                            },
+                    "BUNK":  {
+                                 "prefixes":  [
+                                                  "118bunk",
+                                                  "bunk"
+                                              ],
+                                 "studio":  "BUNK"
+                             },
+                    "CSB":  {
+                                "prefixes":  [
+                                                 "118csb",
+                                                 "csb"
+                                             ],
+                                "studio":  "CSB"
+                            },
+                    "ECR":  {
+                                "prefixes":  [
+                                                 "ecr",
+                                                 "24ecr",
+                                                 "118ecr",
+                                                 "h_099ecr"
+                                             ],
+                                "studio":  "E-BODY"
+                            },
+                    "EG":  {
+                               "prefixes":  [
+                                                "118eg",
+                                                "eg"
+                                            ],
+                               "studio":  "EG"
+                           },
+                    "FD":  {
+                               "prefixes":  [
+                                                "118fd",
+                                                "fd"
+                                            ],
+                               "studio":  "FD"
+                           },
+                    "FDD":  {
+                                "prefixes":  [
+                                                 "118fdd",
+                                                 "fdd"
+                                             ],
+                                "studio":  "FDD"
+                            },
+                    "FEDV":  {
+                                 "prefixes":  [
+                                                  "118fedv",
+                                                  "fedv"
+                                              ],
+                                 "studio":  "FEDV"
+                             },
+                    "GBHL":  {
+                                 "prefixes":  [
+                                                  "118gbhl",
+                                                  "gbhl"
+                                              ],
+                                 "studio":  "GBHL"
+                             },
+                    "GDSC":  {
+                                 "prefixes":  [
+                                                  "118gdsc",
+                                                  "gdsc"
+                                              ],
+                                 "studio":  "GDSC"
+                             },
+                    "GHOR":  {
+                                 "prefixes":  [
+                                                  "ghor",
+                                                  "118ghor",
+                                                  "24ghor"
+                                              ],
+                                 "studio":  "GHOR"
+                             },
+                    "GHPM":  {
+                                 "prefixes":  [
+                                                  "ghpm",
+                                                  "24ghpm",
+                                                  "118ghpm"
+                                              ],
+                                 "studio":  "GHPM"
+                             },
+                    "GON":  {
+                                "prefixes":  [
+                                                 "118gon",
+                                                 "gon"
+                                             ],
+                                "studio":  "GONZO"
+                            },
+                    "HAVD":  {
+                                 "prefixes":  [
+                                                  "havd",
+                                                  "118havd",
+                                                  "24havd"
+                                              ],
+                                 "studio":  "HAVD"
+                             },
+                    "HBAD":  {
+                                 "prefixes":  [
+                                                  "24hbad",
+                                                  "hbad"
+                                              ],
+                                 "studio":  "HIBINO"
+                             },
+                    "HYSD":  {
+                                 "prefixes":  [
+                                                  "hysd",
+                                                  "24hysd",
+                                                  "118hysd"
+                                              ],
+                                 "studio":  "日吉 (Hiyoshi)"
+                             },
+                    "IENE":  {
+                                 "prefixes":  [
+                                                  "118iene",
+                                                  "iene"
+                                              ],
+                                 "studio":  "IE-NET"
+                             },
+                    "IND":  {
+                                "prefixes":  [
+                                                 "118ind",
+                                                 "ind"
+                                             ],
+                                "studio":  "IND"
+                            },
+                    "IPTD":  {
+                                 "prefixes":  [
+                                                  "iptd",
+                                                  "h_068iptd"
+                                              ],
+                                 "studio":  "IdeaPocket"
+                             },
+                    "IPRD":  {
+                                 "prefixes":  [
+                                                  "iprd",
+                                                  "h_068iprd"
+                                              ],
+                                 "studio":  "IdeaPocket"
+                             },
+                    "KAM":  {
+                                "prefixes":  [
+                                                 "118kam",
+                                                 "kam"
+                                             ],
+                                "studio":  "KAM"
+                            },
+                    "KB":  {
+                               "prefixes":  [
+                                                "118kb",
+                                                "kb",
+                                                "84kb"
+                                            ],
+                               "studio":  "KISS"
+                           },
+                    "KIDM":  {
+                                 "prefixes":  [
+                                                  "kidm",
+                                                  "118kidm",
+                                                  "24kidm"
+                                              ],
+                                 "studio":  "KIDM"
+                             },
+                    "LOVED":  {
+                                  "prefixes":  [
+                                                   "118loved",
+                                                   "loved"
+                                               ],
+                                  "studio":  "LOVED"
+                              },
+                    "MXPA":  {
+                                 "prefixes":  [
+                                                  "118mxpa",
+                                                  "mxpa"
+                                              ],
+                                 "studio":  "MAX-A"
+                             },
+                    "NDM":  {
+                                "prefixes":  [
+                                                 "118ndm",
+                                                 "ndm"
+                                             ],
+                                "studio":  "NDM"
+                            },
+                    "NOV":  {
+                                "prefixes":  [
+                                                 "nov",
+                                                 "118nov"
+                                             ],
+                                "studio":  "NOV"
+                            },
+                    "ODFA":  {
+                                 "prefixes":  [
+                                                  "118odfa",
+                                                  "odfa"
+                                              ],
+                                 "studio":  "ODF"
+                             },
+                    "ODFM":  {
+                                 "prefixes":  [
+                                                  "118odfm",
+                                                  "odfm"
+                                              ],
+                                 "studio":  "ODF"
+                             },
+                    "PEPPERMINT":  {
+                                       "prefixes":  [
+                                                        "118pep",
+                                                        "pep"
+                                                    ],
+                                       "studio":  "PEPPERMINT"
+                                   },
+                    "REBD":  {
+                                 "prefixes":  [
+                                                  "rebd",
+                                                  "24rebd",
+                                                  "118rebd"
+                                              ],
+                                 "studio":  "REAL WORKS"
+                             },
+                    "RJK":  {
+                                "prefixes":  [
+                                                 "118rjk",
+                                                 "rjk"
+                                             ],
+                                "studio":  "RJK"
+                            },
+                    "SARS":  {
+                                 "prefixes":  [
+                                                  "118sars",
+                                                  "sars"
+                                              ],
+                                 "studio":  "SARS"
+                             },
+                    "SBVD":  {
+                                 "prefixes":  [
+                                                  "sbvd",
+                                                  "24sbvd",
+                                                  "118sbvd"
+                                              ],
+                                 "studio":  "緊縛SM (SOD)"
+                             },
+                    "SDDL":  {
+                                 "prefixes":  [
+                                                  "118sddl",
+                                                  "sddl"
+                                              ],
+                                 "studio":  "SOD"
+                             },
+                    "SHMO":  {
+                                 "prefixes":  [
+                                                  "118shmo",
+                                                  "shmo"
+                                              ],
+                                 "studio":  "SHMO"
+                             },
+                    "SORA":  {
+                                 "prefixes":  [
+                                                  "118sora",
+                                                  "sora"
+                                              ],
+                                 "studio":  "SORA"
+                             },
+                    "SUPER IDOL":  {
+                                       "prefixes":  [
+                                                        "118si",
+                                                        "si"
+                                                    ],
+                                       "studio":  "SUPER IDOL"
+                                   },
+                    "TGAV":  {
+                                 "prefixes":  [
+                                                  "118tgav",
+                                                  "tgav"
+                                              ],
+                                 "studio":  "TGAV"
+                             },
+                    "TGGP":  {
+                                 "prefixes":  [
+                                                  "tggp",
+                                                  "24tggp",
+                                                  "118tggp"
+                                              ],
+                                 "studio":  "TGGP"
+                             },
+                    "TIN":  {
+                                "prefixes":  [
+                                                 "118tin",
+                                                 "tin"
+                                             ],
+                                "studio":  "TIN"
+                            },
+                    "TJCA":  {
+                                 "prefixes":  [
+                                                  "118tjca",
+                                                  "tjca"
+                                              ],
+                                 "studio":  "TJCA"
+                             },
+                    "TRP":  {
+                                "prefixes":  [
+                                                 "118trp",
+                                                 "trp"
+                                             ],
+                                "studio":  "TRP"
+                            },
+                    "URVK":  {
+                                 "prefixes":  [
+                                                  "118urvk",
+                                                  "urvk"
+                                              ],
+                                 "studio":  "URVK"
+                             },
+                    "VA":  {
+                               "prefixes":  [
+                                                "va",
+                                                "118va",
+                                                "84va"
+                                            ],
+                               "studio":  "VA"
+                           },
+                    "WI":  {
+                               "prefixes":  [
+                                                "118wi",
+                                                "wi"
+                                            ],
+                               "studio":  "WI"
+                           },
+                    "YMDD":  {
+                                 "prefixes":  [
+                                                  "118ymdd",
+                                                  "ymdd"
+                                              ],
+                                 "studio":  "YMDD"
+                             },
+                    "DICK":  {
+                                 "prefixes":  [
+                                                  "118dick",
+                                                  "24dick",
+                                                  "dick"
+                                              ],
+                                 "studio":  "DICK (ディック)"
+                             },
+                    "ID":  {
+                               "prefixes":  [
+                                                "id",
+                                                "118id",
+                                                "24id"
+                                            ],
+                               "studio":  "ID (アイディー)"
+                           },
+                    "GEN":  {
+                                "prefixes":  [
+                                                 "118gen",
+                                                 "gen"
+                                             ],
+                                "studio":  "GENESIS"
+                            },
+                    "SHKD":  {
+                                 "prefixes":  [
+                                                  "1shkd",
+                                                  "shkd"
+                                              ],
+                                 "studio":  "釈迦堂 (Shakado)"
+                             },
+                    "GASO":  {
+                                 "prefixes":  [
+                                                  "gaso",
+                                                  "24gaso",
+                                                  "h_068gaso"
+                                              ],
+                                 "studio":  "GASO"
+                             },
+                    "GRPD":  {
+                                 "prefixes":  [
+                                                  "118grpd",
+                                                  "grpd"
+                                              ],
+                                 "studio":  "Group"
+                             },
+                    "FXD":  {
+                                "prefixes":  [
+                                                 "118fxd",
+                                                 "fxd"
+                                             ],
+                                "studio":  "FXD"
+                            },
+                    "KK":  {
+                               "prefixes":  [
+                                                "118kk",
+                                                "kk"
+                                            ],
+                               "studio":  "KUKI (九鬼)"
+                           },
+                    "KKRD":  {
+                                 "prefixes":  [
+                                                  "118kkrd",
+                                                  "kkrd"
+                                              ],
+                                 "studio":  "KUKI"
+                             },
+                    "PGD":  {
+                                "prefixes":  [
+                                                 "118pgd",
+                                                 "pgd"
+                                             ],
+                                "studio":  "PEGASUS"
+                            },
+                    "ALD":  {
+                                "prefixes":  [
+                                                 "118ald",
+                                                 "ald"
+                                             ],
+                                "studio":  "ALICE DARK"
+                            },
+                    "CZBD":  {
+                                 "prefixes":  [
+                                                  "czbd",
+                                                  "24czbd"
+                                              ],
+                                 "studio":  "CZ"
+                             },
+                    "MXGS":  {
+                                 "prefixes":  [
+                                                  "h_068mxgs",
+                                                  "mxgs",
+                                                  "24mxgs"
+                                              ],
+                                 "studio":  "MAXING"
+                             },
+                    "S2M":  {
+                                "prefixes":  [
+                                                 "s2m",
+                                                 "s2mbd"
+                                             ],
+                                "studio":  "S2M"
+                            },
+                    "S2MBD":  {
+                                  "prefixes":  [
+                                                   "s2mbd",
+                                                   "s2m"
+                                               ],
+                                  "studio":  "S2M"
+                              },
+                    "JB":  {
+                               "prefixes":  [
+                                                "118jb",
+                                                "jb"
+                                            ],
+                               "studio":  "JB"
+                           },
+                    "RED":  {
+                                "prefixes":  [
+                                                 "118red",
+                                                 "red"
+                                             ],
+                                "studio":  "RED HOT"
+                            },
+                    "RHJ":  {
+                                "prefixes":  [
+                                                 "118rhj",
+                                                 "rhj"
+                                             ],
+                                "studio":  "RHJ"
+                            },
+                    "HEY":  {
+                                "prefixes":  [
+                                                 "hey",
+                                                 "24hey"
+                                             ],
+                                "studio":  "HEYZO"
+                            },
+                    "SEA":  {
+                                "prefixes":  [
+                                                 "118sea",
+                                                 "sea"
+                                             ],
+                                "studio":  "SEA"
+                            },
+                    "MKBD":  {
+                                 "prefixes":  [
+                                                  "mkbd",
+                                                  "118mkbd"
+                                              ],
+                                 "studio":  "無垢 (MUKU)"
+                             },
+                    "DCOW":  {
+                                 "prefixes":  [
+                                                  "dcow",
+                                                  "118dcow",
+                                                  "24dcow"
+                                              ],
+                                 "studio":  "DCOW"
+                             },
+                    "SAMA":  {
+                                 "prefixes":  [
+                                                  "sama",
+                                                  "118sama",
+                                                  "24sama"
+                                              ],
+                                 "studio":  "SAMA"
+                             },
+                    "OKAD":  {
+                                 "prefixes":  [
+                                                  "okad",
+                                                  "118okad",
+                                                  "24okad"
+                                              ],
+                                 "studio":  "OKAD"
+                             },
+                    "PPS":  {
+                                "prefixes":  [
+                                                 "pps",
+                                                 "118pps",
+                                                 "24pps"
+                                             ],
+                                "studio":  "PPS"
+                            },
+                    "T28":  {
+                                "prefixes":  [
+                                                 "t28",
+                                                 "t_28",
+                                                 "118t28"
+                                             ],
+                                "studio":  "T28"
+                            },
+                    "T15":  {
+                                "prefixes":  [
+                                                 "t15",
+                                                 "t_15",
+                                                 "118t15"
+                                             ],
+                                "studio":  "T15"
+                            },
+                    "BUR":  {
+                                "prefixes":  [
+                                                 "bur",
+                                                 "118bur"
+                                             ],
+                                "studio":  "BUR"
+                            },
+                    "ADZ":  {
+                                "prefixes":  [
+                                                 "adz",
+                                                 "118adz",
+                                                 "24adz"
+                                             ],
+                                "studio":  "ADZ"
+                            },
+                    "SXD":  {
+                                "prefixes":  [
+                                                 "sxd",
+                                                 "118sxd",
+                                                 "24sxd"
+                                             ],
+                                "studio":  "SXD"
+                            },
+                    "SBMX":  {
+                                 "prefixes":  [
+                                                  "sbmx",
+                                                  "118sbmx",
+                                                  "24sbmx"
+                                              ],
+                                 "studio":  "SBMX"
+                             },
+                    "VGD":  {
+                                "prefixes":  [
+                                                 "vgd",
+                                                 "118vgd",
+                                                 "24vgd"
+                                             ],
+                                "studio":  "VGD"
+                            },
+                    "DMPT":  {
+                                 "prefixes":  [
+                                                  "dmpt",
+                                                  "118dmpt",
+                                                  "24dmpt"
+                                              ],
+                                 "studio":  "DMPT"
+                             },
+                    "IESP":  {
+                                 "prefixes":  [
+                                                  "iesp",
+                                                  "118iesp",
+                                                  "24iesp"
+                                              ],
+                                 "studio":  "IESP"
+                             },
+                    "SDDM":  {
+                                 "prefixes":  [
+                                                  "sddm",
+                                                  "118sddm",
+                                                  "24sddm"
+                                              ],
+                                 "studio":  "SOD"
+                             },
+                    "SDDO":  {
+                                 "prefixes":  [
+                                                  "sddo",
+                                                  "118sddo"
+                                              ],
+                                 "studio":  "SOD"
+                             },
+                    "SDVC":  {
+                                 "prefixes":  [
+                                                  "sdvc",
+                                                  "118sdvc"
+                                              ],
+                                 "studio":  "SOD"
+                             },
+                    "ARKX":  {
+                                 "prefixes":  [
+                                                  "arkx",
+                                                  "118arkx"
+                                              ],
+                                 "studio":  "ARKX"
+                             },
+                    "SRXV":  {
+                                 "prefixes":  [
+                                                  "srxv",
+                                                  "118srxv"
+                                              ],
+                                 "studio":  "MAX-A"
+                             },
+                    "BLDV":  {
+                                 "prefixes":  [
+                                                  "bldv",
+                                                  "118bldv"
+                                              ],
+                                 "studio":  "BLDV"
+                             },
+                    "GLD":  {
+                                "prefixes":  [
+                                                 "gld",
+                                                 "118gld"
+                                             ],
+                                "studio":  "GLD"
+                            },
+                    "MDH":  {
+                                "prefixes":  [
+                                                 "mdh",
+                                                 "118mdh"
+                                             ],
+                                "studio":  "MDH"
+                            },
+                    "DD":  {
+                               "prefixes":  [
+                                                "dd",
+                                                "118dd"
+                                            ],
+                               "studio":  "DD"
+                           },
+                    "CUT":  {
+                                "prefixes":  [
+                                                 "cut",
+                                                 "118cut"
+                                             ],
+                                "studio":  "CUT"
+                            },
+                    "JFK":  {
+                                "prefixes":  [
+                                                 "jfk",
+                                                 "118jfk"
+                                             ],
+                                "studio":  "JFK"
+                            },
+                    "MEEL":  {
+                                 "prefixes":  [
+                                                  "meel",
+                                                  "118meel"
+                                              ],
+                                 "studio":  "MEEL"
+                             },
+                    "STAR":  {
+                                 "prefixes":  [
+                                                  "star",
+                                                  "1star",
+                                                  "118star"
+                                              ],
+                                 "studio":  "SOD"
+                             },
+                    "IE":  {
+                               "prefixes":  [
+                                                "ie",
+                                                "118ie"
+                                            ],
+                               "studio":  "IE"
+                           },
+                    "NHDT":  {
+                                 "prefixes":  [
+                                                  "nhdt",
+                                                  "118nhdt"
+                                              ],
+                                 "studio":  "NHDT"
+                             },
+                    "ATFD":  {
+                                 "prefixes":  [
+                                                  "atfd",
+                                                  "118atfd"
+                                              ],
+                                 "studio":  "ATFD"
+                             },
+                    "ATID":  {
+                                 "prefixes":  [
+                                                  "atid",
+                                                  "118atid",
+                                                  "24atid"
+                                              ],
+                                 "studio":  "ATTACKERS"
+                             },
+                    "WW":  {
+                               "prefixes":  [
+                                                "ww",
+                                                "118ww"
+                                            ],
+                               "studio":  "WW"
+                           },
+                    "MRL":  {
+                                "prefixes":  [
+                                                 "mrl",
+                                                 "118mrl"
+                                             ],
+                                "studio":  "MRL"
+                            },
+                    "HD":  {
+                               "prefixes":  [
+                                                "hd",
+                                                "118hd"
+                                            ],
+                               "studio":  "HD"
+                           },
+                    "WSS":  {
+                                "prefixes":  [
+                                                 "wss",
+                                                 "118wss"
+                                             ],
+                                "studio":  "WSS"
+                            },
+                    "UGM":  {
+                                "prefixes":  [
+                                                 "118ugm",
+                                                 "ugm",
+                                                 "24ugm"
+                                             ],
+                                "studio":  "UGM"
+                            },
+                    "DLDSS":  {
+                                  "prefixes":  [
+                                                   "dldss",
+                                                   "24dldss"
+                                               ],
+                                  "studio":  "DAHLIA"
+                              }
+                }
+}
